@@ -1,47 +1,48 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        'luxury-black': '#0a0a0a',
         'luxury-white': '#fafaf8',
         'luxury-beige': '#f5f1ed',
+        'luxury-black': '#0a0a0a',
         'luxury-gold': '#d4a574',
         'luxury-charcoal': '#3a3a3a',
       },
       fontFamily: {
-        'sans': ['Inter', 'sans-serif'],
-        'display': ['Clash Display', 'sans-serif'],
+        'clash': ['Clash Display', 'sans-serif'],
+        'inter': ['Inter', 'sans-serif'],
       },
       animation: {
-        'float': 'float 6s ease-in-out infinite',
-        'glow': 'glow 3s ease-in-out infinite',
-        'shimmer': 'shimmer 2s ease-in-out infinite',
+        'slide-in-up': 'slideInUp 0.6s ease-out forwards',
+        'slide-in-down': 'slideInDown 0.6s ease-out forwards',
+        'fade-in': 'fadeIn 0.6s ease-out forwards',
       },
       keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
+        slideInUp: {
+          '0%': { opacity: '0', transform: 'translateY(30px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        glow: {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(212, 165, 116, 0.3)' },
-          '50%': { boxShadow: '0 0 40px rgba(212, 165, 116, 0.6)' },
+        slideInDown: {
+          '0%': { opacity: '0', transform: 'translateY(-30px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        shimmer: {
-          '0%': { backgroundPosition: '-1000px 0' },
-          '100%': { backgroundPosition: '1000px 0' },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
         },
       },
-      backdropFilter: {
-        'none': 'none',
-        'blur': 'blur(8px)',
+      boxShadow: {
+        'luxury': '0 10px 40px rgba(0, 0, 0, 0.1)',
+        'luxury-lg': '0 20px 60px rgba(0, 0, 0, 0.15)',
+        'luxury-gold': '0 10px 30px rgba(212, 165, 116, 0.2)',
       },
     },
   },
   plugins: [],
-}
+};
